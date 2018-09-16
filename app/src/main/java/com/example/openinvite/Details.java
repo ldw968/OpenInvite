@@ -9,9 +9,8 @@ import android.widget.TextView;
 
 public class Details extends AppCompatActivity {
 
-    private TextView titleTextView;
-    private TextView releaseDateView;
-    private TextView descriptionView;
+    private TextView tView;
+    private TextView dView;
     private ImageView posterView;
 
     @Override
@@ -20,15 +19,15 @@ public class Details extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         // get references to the views.
-        titleTextView = (TextView) findViewById(R.id.title);
-        releaseDateView = (TextView) findViewById(R.id.descr);
+        tView = (TextView) findViewById(R.id.title);
+        dView = (TextView) findViewById(R.id.descr);
         posterView = (ImageView) findViewById(R.id.imageView);
 
         Intent intent = getIntent();
         Event event = intent.getParcelableExtra(EventsAdapter.EVENT);
 
-        titleTextView.setText(event.get_name());
-        releaseDateView.setText("Release Date: " + event.get_descr());
+        tView.setText(event.get_name());
+        dView.setText("Release Date: " + event.get_descr());
         //Picasso.with(posterView.getContext()).load(movie.getPoster_path()).into(posterView);
     }
 }
